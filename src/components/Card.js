@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import DragAndDrop from './DragAndDrop';
 
 const Container = styled.div`
     width: 402px;
@@ -14,25 +15,70 @@ const Container = styled.div`
     align-items: center;
 `;
 
-const Title = styled.h1``;
+const Title = styled.h1`
+    font-family: Poppins;
+    font-weight: 500;
+    font-size: 18px;
+    letter-spacing: -0.035em;
+    color: #4f4f4f;
+`;
 
-const Info = styled.p``;
+const Info = styled.p`
+    font-family: Poppins;
+    font-weight: 500;
+    font-size: 10px;
+    letter-spacing: -0.035em;
+    color: #828282;
+`;
 
-const DragAndDrop = styled.div``;
+const DragAndDropText = styled.p`
+    font-family: Poppins;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: -0.035em;
+    color: #bdbdbd;
+`;
 
-const Button = styled.button``;
+const ChooseButton = styled.label`
+    padding: 0.4rem 1.1rem;
+    background: #2f80ed;
+    border: none;
+    border-radius: 8px;
+    font-family: Noto Sans;
+    font-weight: 500;
+    font-size: 12px;
+    letter-spacing: -0.035em;
+    color: #ffffff;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.1s ease-out;
+    &:hover {
+        filter: brightness(0.9);
+    }
+    &:active {
+        filter: brightness(1);
+    }
+`;
+
+const ChooseInput = styled.input`
+    display: none;
+`;
 
 const Card = () => {
     return (
         <Container>
-            <h1>Upload your image</h1>
-            <p>File should be Jpeg, Png,...</p>
+            <Title>Upload your image</Title>
+            <Info>File should be Jpeg, Png,...</Info>
             <h2></h2>
-            <div className="drop-area">
-                <p>Drag & Drop your image here</p>
-            </div>
-            <p>Or</p>
-            <button>Choose a file</button>
+            <DragAndDrop>
+                <DragAndDropText>Drag & Drop your image here</DragAndDropText>
+            </DragAndDrop>
+            <DragAndDropText>Or</DragAndDropText>
+            <ChooseButton type="file" for="upload">
+                Choose File
+            </ChooseButton>
+            <ChooseInput type="file" name="photo" id="upload" />
         </Container>
     );
 };
