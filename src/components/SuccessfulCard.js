@@ -40,6 +40,7 @@ const StyledImage = styled(Image)`
     border-radius: 12px;
     border: none;
     display: none;
+    object-fit: cover;
     ${(props) => {
         return (
             props.isImageLoaded &&
