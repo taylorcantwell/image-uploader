@@ -13,12 +13,12 @@ const loadingAnimation = keyframes`
 
 }
 
-
 50% {
     transform: translateX(220%)  ;
     opacity: 0;
    
 }
+
 51% {
     transform: translateX(-5%)  ;
     opacity: 0;
@@ -35,9 +35,7 @@ const loadingAnimation = keyframes`
     transform: translateX(220%)  ;
     opacity: 0;
 
-}
-
-`;
+}`;
 
 const Container = styled.div`
     width: 400.36px;
@@ -50,6 +48,7 @@ const Container = styled.div`
     flex-direction: column;
     position: relative;
 `;
+
 const Title = styled.p`
     font-weight: 500;
     font-size: 18px;
@@ -74,6 +73,7 @@ const Loader = styled.div`
         animation: ${loadingAnimation} 2.5s infinite ease-out;
     }
 `;
+
 const Uploading = () => {
     return (
         <Container>

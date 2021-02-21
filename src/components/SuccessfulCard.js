@@ -13,7 +13,7 @@ const loaderAnimation = keyframes`
 const Container = styled.div`
     width: 400.36px;
     height: 454.96px;
-    padding: 2rem;
+    padding: 1.5rem 2rem 0rem 2rem;
     background: #ffffff;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
     border-radius: 12px;
@@ -22,8 +22,7 @@ const Container = styled.div`
 
 const Icon = styled(CheckCircleIcon)`
     color: #219653;
-    font-size: 5rem;
-    width: 100;
+    margin-top: 0.5rem;
 `;
 
 const Title = styled.h2`
@@ -33,12 +32,18 @@ const Title = styled.h2`
     letter-spacing: -0.035em;
 `;
 
-const StyledImage = styled(Image)`
-    margin: 2rem 0rem;
+const ImageAndLoaderContainer = styled.div`
+    margin: 1.5rem 0rem;
     width: 338px;
     height: 224.4px;
     border-radius: 12px;
-    border: none;
+    position: relative;
+`;
+
+const StyledImage = styled(Image)`
+    width: 338px;
+    height: 224.4px;
+    border-radius: 12px;
     display: none;
     object-fit: cover;
     ${(props) => {
@@ -50,13 +55,13 @@ const StyledImage = styled(Image)`
         );
     }};
 `;
+
 const LoaderContainer = styled.div`
-    margin: 2rem 0rem;
     width: 338px;
     height: 230px;
     display: flex;
     position: absolute;
-    top: -15%;
+    top: 0%;
     justify-content: center;
     align-items: center;
     transition: all 1s ease-in;
@@ -70,6 +75,7 @@ const LoaderContainer = styled.div`
         );
     }};
 `;
+
 const Loader = styled.div`
     border: 16px solid #f3f3f3;
     border-top: 16px solid #2a73d5;
@@ -84,13 +90,24 @@ const URLContainer = styled.div`
     height: 38px;
     background: #f6f8fb;
     border: 1px solid #2f80ed;
-    box-sizing: border-box;
     border-radius: 8px;
     display: flex;
     justify-content: space-between;
     padding-left: 0.5rem;
     align-items: center;
-    font-size: 50%;
+`;
+
+const UrlText = styled.input`
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: #f6f8fb;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    outline: none;
+    font-weight: 500;
+    font-size: 8px;
+    letter-spacing: -0.035em;
 `;
 
 const CopyLinkButton = styled.button`
@@ -109,24 +126,6 @@ const CopyLinkButton = styled.button`
     &:active {
         filter: brightness(1);
     }
-`;
-
-const Input = styled.input`
-    width: 100%;
-    height: 100%;
-    border: none;
-    background: #f6f8fb;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    outline: none;
-`;
-
-const ImageAndLoaderContainer = styled.div`
-    margin: 2rem 0rem;
-    width: 338px;
-    height: 224.4px;
-    border-radius: 12px;
-    position: relative;
 `;
 
 const SuccessfulCard = () => {
@@ -163,7 +162,7 @@ const SuccessfulCard = () => {
                 </LoaderContainer>
             </ImageAndLoaderContainer>
             <URLContainer>
-                <Input type="text" value={imageURL} ref={textArea} />
+                <UrlText type="text" value={imageURL} ref={textArea} />
                 <CopyLinkButton onClick={copyURL}>Copy Link</CopyLinkButton>
             </URLContainer>
         </Container>

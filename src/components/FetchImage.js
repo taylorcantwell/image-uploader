@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 const ErrorMessage = styled.p`
@@ -8,15 +8,13 @@ const ErrorMessage = styled.p`
 
 const FetchImage = ({ imageURL }) => {
     const [doesImageExist, updateImageExistence] = useState(true);
-    const ref = useRef();
     const imageSource = `http://res.cloudinary.com/dlw8rtuwl/image/upload/${imageURL}`;
-    const handleError = (e) => {
-        updateImageExistence(false);
-    };
+    const handleError = (e) => updateImageExistence(false);
+
     return (
         <>
             {doesImageExist ? (
-                <img ref={ref} onError={handleError} src={imageSource} />
+                <img onError={handleError} src={imageSource} />
             ) : (
                 <ErrorMessage>
                     An image doesn't exist at this address

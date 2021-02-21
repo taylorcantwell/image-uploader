@@ -35,4 +35,5 @@ export const {
     uploadError,
     imageLoaded,
 } = uploaderSlice.actions;
+
 export default uploaderSlice.reducer;
