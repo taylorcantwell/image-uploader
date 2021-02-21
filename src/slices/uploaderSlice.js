@@ -4,31 +4,35 @@ export const uploaderSlice = createSlice({
     name: 'uploading',
     initialState: {
         uploading: false,
+        uploadSuccessful: null,
+        uploadFail: null,
+        errorMessage: '',
+        publicID: '',
+        imageLoaded: null,
     },
     reducers: {
-        uploading: (state) => {
-            state.uploading = true;
+        uploading: (state, { payload }) => {
+            state.uploading = payload.uploading;
         },
-        finishedUploading: (state) => {
-            state.uploading = false;
+        finishedUploading: (state, { payload }) => {
+            state.uploading = payload.uploading;
+            state.uploadSuccessful = payload.uploadSuccessful;
+            state.publicID = payload.publicID;
+        },
+        uploadError: (state, { payload }) => {
+            state.uploadFail = payload.uploadFail;
+            state.errorMessage = payload.errorMessage;
+        },
+        imageLoaded: (state) => {
+            state.imageLoaded = true;
         },
     },
 });
 
-export const { uploading, finishedUploading } = uploaderSlice.actions;
+export const {
+    uploading,
+    finishedUploading,
+    uploadError,
+    imageLoaded,
+} = uploaderSlice.actions;
 export default uploaderSlice.reducer;
-
-// The function below is called a thunk and allows us to perform async logic. It
-// can be dispatched like a regular action: `dispatch(incrementAsync(10))`. This
-// will call the thunk with the `dispatch` function as the first argument. Async
-// code can then be executed and other actions can be dispatched
-// export const incrementAsync = (amount) => (dispatch) => {
-//     setTimeout(() => {
-//         dispatch(incrementByAmount(amount));
-//     }, 1000);
-// };
-
-// // The function below is called a selector and allows us to select a value from
-// // the state. Selectors can also be defined inline where they're used instead of
-// // in the slice file. For example: `useSelector((state) => state.counter.value)`
-// export const selectCount = (state) => state.counter.value;

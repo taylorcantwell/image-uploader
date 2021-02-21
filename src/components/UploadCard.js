@@ -65,7 +65,7 @@ const ChooseInput = styled.input`
     display: none;
 `;
 
-const Card = () => {
+const UploadCard = () => {
     return (
         <Container>
             <Title>Upload your image</Title>
@@ -83,4 +83,4 @@ const Card = () => {
     );
 };
 
-export default Card;
+export default UploadCard;
