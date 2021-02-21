@@ -131,7 +131,7 @@ const ImageAndLoaderContainer = styled.div`
 
 const SuccessfulCard = () => {
     const uploadedImage = useSelector((state) => state.publicID);
-    const imageURL = `http://localhost:3000/?${uploadedImage}`;
+    const imageURL = `https://ecstatic-hoover-70015d.netlify.app/?${uploadedImage}`;
     const textArea = useRef();
     const dispatch = useDispatch();
     const isImageLoaded = useSelector((state) => state.imageLoaded);
