@@ -14,15 +14,18 @@ export const uploaderSlice = createSlice({
         uploading: (state, { payload }) => {
             state.uploading = payload.uploading;
         },
+
         finishedUploading: (state, { payload }) => {
             state.uploading = payload.uploading;
             state.uploadSuccessful = payload.uploadSuccessful;
             state.publicID = payload.publicID;
         },
+
         uploadError: (state, { payload }) => {
             state.uploadFail = payload.uploadFail;
             state.errorMessage = payload.errorMessage;
         },
+
         imageLoaded: (state) => {
             state.imageLoaded = true;
         },

@@ -46,6 +46,7 @@ const StyledImage = styled(Image)`
     border-radius: 12px;
     display: none;
     object-fit: cover;
+
     ${(props) => {
         return (
             props.isImageLoaded &&
@@ -66,6 +67,7 @@ const LoaderContainer = styled.div`
     align-items: center;
     transition: all 1s ease-in;
     background-color: white;
+
     ${(props) => {
         return (
             props.isImageLoaded &&
@@ -120,9 +122,11 @@ const CopyLinkButton = styled.button`
     font-size: 9px;
     border: none;
     color: #ffffff;
+
     &:hover {
         filter: brightness(0.9);
     }
+
     &:active {
         filter: brightness(1);
     }

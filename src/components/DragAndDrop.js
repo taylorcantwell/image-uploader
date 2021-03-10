@@ -7,7 +7,7 @@ import backgroundImage from '../images/image.svg';
 import {
     finishedUploading,
     uploadError,
-    uploading,
+    uploading
 } from '../slices/uploaderSlice';
 
 const Container = styled.form`
@@ -69,9 +69,11 @@ const ChooseButton = styled.label`
     cursor: pointer;
     outline: none;
     transition: all 0.1s ease-out;
+
     &:hover {
         filter: brightness(0.9);
     }
+
     &:active {
         filter: brightness(1);
     }
@@ -105,6 +107,7 @@ const DragAndDrop = () => {
                     uploading: false,
                 })
             );
+
             if (fileRejections.length > 1) {
                 dispatch(
                     uploadError({
@@ -116,6 +119,7 @@ const DragAndDrop = () => {
 
                 return;
             }
+
             if (fileRejections.length > 0) {
                 dispatch(
                     uploadError({

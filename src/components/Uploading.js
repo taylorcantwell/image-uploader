@@ -62,6 +62,7 @@ const Loader = styled.div`
     height: 6px;
     background: #f2f2f2;
     border-radius: 8px;
+    
     &::after {
         content: ' ';
         display: block;
